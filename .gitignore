@@ -47,3 +47,10 @@ dmypy.json
 
 # OS
 Thumbs.db
+
+# Tooling defaults
+.env
+.env.*
+.ruff_cache/
+coverage.xml
+.nox/

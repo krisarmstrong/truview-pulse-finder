@@ -106,11 +106,10 @@ bigred-websocket-client/
 ├── archive/
 │   └── v2.10/
 │       └── BigRedWebSocketClient.py  # Original script (version 2.10)
-├── BigRedWebSocketClient.py          # Current script (version 3.0.1)
+├── BigRedWebSocketClient.py          # Current script
 ├── requirements.txt                  # Dependency list
 ├── README.md                         # Project documentation
 ├── changelog.txt                     # Version history
-├── bump_version.py                   # Version increment script
 └── .gitignore                        # Git ignore rules
 ```
 
@@ -129,13 +128,8 @@ pip install -r requirements.txt
 
 ### Versioning
 
-To increment the version number and update the changelog, use the `bump_version.py` script:
-
-```bash
-python3 bump_version.py "Added new feature X"
-```
-
-This increments the patch version (e.g., 3.0.1 to 3.0.2), updates `BigRedWebSocketClient.py`, and appends a changelog entry.
+Versioning and changelog updates are automated via release-please using Conventional Commits.
+No manual version bump script is required.
 
 ### Git Workflow
 
