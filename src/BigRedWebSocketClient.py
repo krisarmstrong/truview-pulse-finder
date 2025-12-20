@@ -11,13 +11,13 @@ results to a file. The script is designed for embedded systems, using Python 3
 with the 'websockets' library as an external dependency (see requirements.txt).
 
 Author: Kris Armstrong
-Version: 3.0.0
+Version: 3.0.1
 Date: April 18, 2025
 """
 
 __title__ = "BigRed WebSocket Client"
 __author__ = "Kris Armstrong"
-__version__ = "3.0.0"
+__version__ = "3.0.1"
 
 # Standard Library Imports
 import argparse

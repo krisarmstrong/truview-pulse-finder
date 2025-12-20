@@ -1,5 +1,8 @@
 # BigRed WebSocket Client
 
+![Python](https://img.shields.io/badge/Python-3.6+-blue?logo=python&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-green) ![Status](https://img.shields.io/badge/Status-Active-success)
+
+
 ## Overview
 
 The BigRed WebSocket Client is a Python 3 script designed to locate NetScout nGeniusPULSE devices (e.g., nPoints) running a WebSocket server on port 8000 within a specified IPv4 network. It queries devices for attributes such as MAC address, build version, CPU temperature, and system information, and logs results to a file. The script is optimized for embedded systems, using the `websockets` library for WebSocket communication (see `requirements.txt`).
@@ -53,7 +56,7 @@ Run the script with optional command-line arguments:
 - `-t, --timeout SECONDS`: Timeout in seconds (default: 0.10).
 - `-d, --display-level LEVEL`: Info level (0=minimal, 9=full; default: 0).
 - `-l, --language {EN,ES}`: Language (EN=English, ES=Spanish; default: EN).
-- `-v, --version`: Display the script version (3.0.0).
+- `-v, --version`: Display the script version (3.0.1).
 - `--verbose`: Enable verbose console output.
 
 ### Example Commands
@@ -103,7 +106,7 @@ bigred-websocket-client/
 ├── archive/
 │   └── v2.10/
 │       └── BigRedWebSocketClient.py  # Original script (version 2.10)
-├── BigRedWebSocketClient.py          # Current script (version 3.0.0)
+├── BigRedWebSocketClient.py          # Current script (version 3.0.1)
 ├── requirements.txt                  # Dependency list
 ├── README.md                         # Project documentation
 ├── changelog.txt                     # Version history
@@ -132,7 +135,7 @@ To increment the version number and update the changelog, use the `bump_version.
 python3 bump_version.py "Added new feature X"
 ```
 
-This increments the patch version (e.g., 3.0.0 to 3.0.1), updates `BigRedWebSocketClient.py`, and appends a changelog entry.
+This increments the patch version (e.g., 3.0.1 to 3.0.2), updates `BigRedWebSocketClient.py`, and appends a changelog entry.
 
 ### Git Workflow
 
@@ -169,4 +172,4 @@ This software is proprietary and intended for use with NetScout nGeniusPULSE dev
 
 ## Version
 
-3.0.0 (April 18, 2025)
+3.0.1 (December 20, 2025)

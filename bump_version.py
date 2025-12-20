@@ -98,7 +98,8 @@ def update_script(file_path, old_version_line, new_version):
         content = content.replace(old_version_line, new_version_line)
 
         # Update argparse version
-        old_argparse = f'version=f"%(prog)s {old_version_line.split("=")[1].strip().strip(\'")\'}'
+        old_version = old_version_line.split("=", 1)[1].strip().strip('"').strip("'")
+        old_argparse = f'version=f"%(prog)s {old_version}"'
         new_argparse = f'version=f"%(prog)s {new_version}"'
         content = content.replace(old_argparse, new_argparse)
 
