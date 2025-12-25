@@ -7,7 +7,7 @@ name = "truview-pulse-finder"
 version = "3.0.2"
 description = "Automation tooling for truview-pulse-finder."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 license = { file = "LICENSE" }
 authors = [
   { name = "Kris Armstrong" }
