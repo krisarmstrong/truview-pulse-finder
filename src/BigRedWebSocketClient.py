@@ -20,16 +20,18 @@ __author__ = "Kris Armstrong"
 
 import argparse
 import asyncio
-from datetime import datetime
 import hashlib
-from importlib.metadata import PackageNotFoundError, version as _pkg_version
 import ipaddress
 import logging
-from pathlib import Path
 import sys
+from datetime import datetime
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _pkg_version
+from pathlib import Path
 
 # External Dependency (see requirements.txt)
 import websockets
+
 
 # Version helpers
 def _find_pyproject(start: Path) -> Path | None:
@@ -65,9 +67,11 @@ else:
     except PackageNotFoundError:
         __version__ = "0.0.0"
 
+
 # Global Configuration
 class Config:
     """Global configuration constants for the BigRed WebSocket Client."""
+
     default_network = "129.196.196.0/23"  # Default network (Fluke Colorado)
     timeout_secs = 0.10  # Default timeout in seconds
     log_file = "bigred_websocket.log"  # Log file for debugging and info
@@ -89,9 +93,7 @@ def setup_logging(verbose=False):
     )
     if verbose:
         console_handler = logging.StreamHandler()
-        console_handler.setFormatter(
-            logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
-        )
+        console_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
         logging.getLogger().addHandler(console_handler)
 
 
@@ -207,7 +209,7 @@ async def query_device(ip_addr, queries, timeout, display_level, language, mac_f
                     break
 
                 # Prepare and send query
-                instring = f"{query_key}{nonce}".encode("utf-8")
+                instring = f"{query_key}{nonce}".encode()
                 signature = hashlib.sha1(instring).hexdigest()
                 payload = f'{{"callType":"{query_key}","parameter":"","signature":"{signature}"}}'
                 await ws.send(payload)
@@ -217,9 +219,7 @@ async def query_device(ip_addr, queries, timeout, display_level, language, mac_f
                 result = await ws.recv()
                 logging.debug("Received from %s: %s", ip_addr, result)
                 data = (
-                    result.partition('data": "')[2]
-                    .partition('", "success')[0]
-                    .replace("\\n", " ")
+                    result.partition('data": "')[2].partition('", "success')[0].replace("\\n", " ")
                 )
 
                 # Handle MAC filter for first query (gtme_web)
@@ -251,7 +251,7 @@ async def query_device(ip_addr, queries, timeout, display_level, language, mac_f
 
             return True if not mac_filter or mac_filter_found else False
 
-    except (websockets.exceptions.ConnectionClosed, asyncio.TimeoutError, OSError) as err:
+    except (TimeoutError, websockets.exceptions.ConnectionClosed, OSError) as err:
         logging.debug("Failed to query %s: %s", ip_addr, err)
         return False
 
