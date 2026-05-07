@@ -1,15 +1,28 @@
-# Python
-*.pyc
-*.pyo
-*.pyd
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ TruView Pulse Finder (BigRed WebSocket Client) - .gitignore               ║
+# ╠═══════════════════════════════════════════════════════════════════════════╣
+# ║ WebSocket client for TruView/BigRed network analysis devices              ║
+# ║ Stack: Python 3.x, WebSocket, network monitoring                          ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# ─── Python Core ─────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
-.Python
-env/
-venv/
+*.pyc
+*.pyo
+*.pyd
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
 .venv/
+venv/
+env/
 ENV/
+env.bak/
+venv.bak/
+.Python
+
+# ─── Distribution & Packaging ────────────────────────────────────────────────
 build/
 develop-eggs/
 dist/
@@ -25,32 +38,52 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+
+# ─── Testing & Coverage ──────────────────────────────────────────────────────
 .pytest_cache/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
 .tox/
+.nox/
+.hypothesis/
+
+# ─── Type Checking & Linting ─────────────────────────────────────────────────
 .mypy_cache/
 .dmypy.json
 dmypy.json
+.pytype/
+.ruff_cache/
 
-# General
-.DS_Store
-*.log
-*.swp
-*.swo
-*~
-
-# IDE
-.vscode/
-.idea/
-*.sublime-*
-
-# OS
-Thumbs.db
-
-# Tooling defaults
+# ─── Environment & Secrets ───────────────────────────────────────────────────
 .env
 .env.*
-.ruff_cache/
-coverage.xml
-.nox/
+.env.local
+
+# Device connection credentials
+bigred_*.credentials
+truview_config.json
+
+# ─── WebSocket Data ──────────────────────────────────────────────────────────
+# Captured WebSocket traffic
+ws_captures/
+*.wsdata
+
+# Session recordings
+sessions/
+session_*.json
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+websocket_*.log
+bigred_*.log
+
+# ─── Temporary Files ─────────────────────────────────────────────────────────
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+.tmp_*
