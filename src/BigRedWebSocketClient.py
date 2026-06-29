@@ -210,7 +210,7 @@ async def query_device(ip_addr, queries, timeout, display_level, language, mac_f
 
                 # Prepare and send query
                 instring = f"{query_key}{nonce}".encode()
-                signature = hashlib.sha1(instring).hexdigest()
+                signature = hashlib.sha1(instring, usedforsecurity=False).hexdigest()
                 payload = f'{{"callType":"{query_key}","parameter":"","signature":"{signature}"}}'
                 await ws.send(payload)
                 logging.debug("Sent to %s: %s", ip_addr, payload)
