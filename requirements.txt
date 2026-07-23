@@ -1,2 +1,2 @@
 # BigRed WebSocket Client Dependencies
-websockets==16.0
+websockets==16.1.1
