@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "truview-pulse-finder"
-version = "3.0.2"
+version = "3.0.3"
 description = "Automation tooling for truview-pulse-finder."
 readme = "README.md"
 requires-python = ">=3.14"
